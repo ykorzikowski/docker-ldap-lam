@@ -1,4 +1,4 @@
-FROM debian:stretch
+FROM osixia/light-baseimage
 MAINTAINER Yannik Korzikowski <yannik@korzikowski.de>
 
 ARG LAM_RELEASE=6.7
