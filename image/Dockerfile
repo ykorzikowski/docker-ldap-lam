@@ -46,32 +46,7 @@ RUN wget http://prdownloads.sourceforge.net/lam/ldap-account-manager_${LAM_RELEA
 
 # cleanup
 RUN apt-get autoremove -y && apt-get clean all \
- && rm -f /tmp/ldap-account-manager_${LAM_RELEASE}-1_all.deb \
-
-RUN echo $'server {\n\
-    listen *:8080;\n\
-    listen [::]:8080;\n\
-    server_name _;\n\
-
-    location / {\n\
-        index index.html;\n\
-        alias /usr/share/ldap-account-manager;\n\
-        autoindex off;\n\
-
-        location ~ \.php$ {\n\
-                include snippets/fastcgi-php.conf;\n\
-                fastcgi_pass unix:/var/run/php/php7.0-fpm.sock;\n\
-                fastcgi_param SCRIPT_FILENAME $request_filename;\n\
-        }\n\
-
-        location ~ /lam/(tmp/internal|sess|config|lib|help|locale) {\n\
-                deny all;\n\
-                return 403;\n\
-        }\n\
-
-    }\n\
-}' > /etc/nginx/sites-available/default
-
+ && rm -f /tmp/ldap-account-manager_${LAM_RELEASE}-1_all.deb 
 
 # Add service directory to /container/service
 ADD service /container/service
