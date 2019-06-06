@@ -20,6 +20,7 @@ RUN  /container/tool/add-service-available :ssl-tools \
      && LC_ALL=C DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
     wget \
     ca-certificates \
+    runit \
     nginx \
     apache2 \
     openssl \
