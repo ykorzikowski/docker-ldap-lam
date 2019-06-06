@@ -48,6 +48,9 @@ RUN wget http://prdownloads.sourceforge.net/lam/ldap-account-manager_${LAM_RELEA
 RUN apt-get autoremove -y && apt-get clean all \
  && rm -f /tmp/ldap-account-manager_${LAM_RELEASE}-1_all.deb 
 
+# change permissions
+chown -R www-data:www-data /usr/share/ldap-account-manager
+
 # Add service directory to /container/service
 ADD service /container/service
 
