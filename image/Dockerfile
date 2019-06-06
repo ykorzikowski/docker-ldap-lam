@@ -43,6 +43,8 @@ RUN apt-get autoremove -y && apt-get clean all \
 # change permissions
 RUN chown -R www-data:www-data /usr/share/ldap-account-manager
 
+RUN mv /usr/share/ldap-account-manager/config /usr/share/ldap-account-manager/config.example && rm /usr/share/ldap-account-manager/config.example/config.cfg
+
 # Add service directory to /container/service
 ADD service /container/service
 
@@ -53,5 +55,3 @@ ADD environment /container/environment/99-default
 
 # Expose default ldap, ldaps and ldapadmin ports
 EXPOSE 389 636 8080
-
-#VOLUME /usr/share/ldap-account-manager/config /lam_config
