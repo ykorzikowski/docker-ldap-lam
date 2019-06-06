@@ -5,7 +5,7 @@ server {
 
     location / {
         index index.html;
-        alias /usr/share/ldap-account-manager;
+        alias /usr/share/ldap-account-manager/;
         autoindex off;
 
         location ~ \.php$ {
