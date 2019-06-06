@@ -51,6 +51,8 @@ RUN apt-get autoremove -y && apt-get clean all \
 # Add service directory to /container/service
 ADD service /container/service
 
+RUN /container/tool/install-service
+
 # Add default env variables
 ADD environment /container/environment/99-default
 
